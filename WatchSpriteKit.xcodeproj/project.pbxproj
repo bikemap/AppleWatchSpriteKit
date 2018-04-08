@@ -19,6 +19,9 @@
 		0641A1F0207A998500643737 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641A1EF207A998500643737 /* InterfaceController.swift */; };
 		0641A1F2207A998500643737 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641A1F1207A998500643737 /* ExtensionDelegate.swift */; };
 		0641A1F4207A998600643737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641A1F3207A998600643737 /* Assets.xcassets */; };
+		0641A204207A9CB700643737 /* AnimatedHeart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0641A203207A9CB700643737 /* AnimatedHeart.sks */; };
+		0641A20D207AA0DE00643737 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0641A20C207AA0DE00643737 /* HealthKit.framework */; };
+		0641A20F207AA1F000643737 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0641A20E207AA1F000643737 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,11 @@
 		0641A1F1207A998500643737 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		0641A1F3207A998600643737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0641A1F5207A998600643737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0641A203207A9CB700643737 /* AnimatedHeart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnimatedHeart.sks; sourceTree = "<group>"; };
+		0641A205207A9E2100643737 /* WatchSpriteKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchSpriteKit.entitlements; sourceTree = "<group>"; };
+		0641A209207A9E2B00643737 /* WatchSpriteKit WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchSpriteKit WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		0641A20C207AA0DE00643737 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		0641A20E207AA1F000643737 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0641A20D207AA0DE00643737 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0641A20F207AA1F000643737 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +117,7 @@
 				0641A1DF207A998500643737 /* WatchSpriteKit WatchKit App */,
 				0641A1EE207A998500643737 /* WatchSpriteKit WatchKit Extension */,
 				0641A1CA207A998300643737 /* Products */,
+				0641A206207A9E2100643737 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +134,7 @@
 		0641A1CB207A998300643737 /* WatchSpriteKit */ = {
 			isa = PBXGroup;
 			children = (
+				0641A205207A9E2100643737 /* WatchSpriteKit.entitlements */,
 				0641A1CC207A998300643737 /* AppDelegate.swift */,
 				0641A1CE207A998300643737 /* ViewController.swift */,
 				0641A1D0207A998300643737 /* Main.storyboard */,
@@ -146,12 +158,23 @@
 		0641A1EE207A998500643737 /* WatchSpriteKit WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0641A209207A9E2B00643737 /* WatchSpriteKit WatchKit Extension.entitlements */,
+				0641A203207A9CB700643737 /* AnimatedHeart.sks */,
 				0641A1EF207A998500643737 /* InterfaceController.swift */,
 				0641A1F1207A998500643737 /* ExtensionDelegate.swift */,
 				0641A1F3207A998600643737 /* Assets.xcassets */,
 				0641A1F5207A998600643737 /* Info.plist */,
 			);
 			path = "WatchSpriteKit WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		0641A206207A9E2100643737 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0641A20E207AA1F000643737 /* HealthKit.framework */,
+				0641A20C207AA0DE00643737 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +245,25 @@
 				TargetAttributes = {
 					0641A1C8207A998300643737 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					0641A1DA207A998500643737 = {
 						CreatedOnToolsVersion = 9.3;
 					};
 					0641A1E9207A998500643737 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -276,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0641A1F4207A998600643737 /* Assets.xcassets in Resources */,
+				0641A204207A9CB700643737 /* AnimatedHeart.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchSpriteKit WatchKit Extension/WatchSpriteKit WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2J5QQZ32L;
 				INFOPLIST_FILE = "WatchSpriteKit WatchKit Extension/Info.plist";
@@ -483,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchSpriteKit WatchKit Extension/WatchSpriteKit WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2J5QQZ32L;
 				INFOPLIST_FILE = "WatchSpriteKit WatchKit Extension/Info.plist";
@@ -543,6 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchSpriteKit/WatchSpriteKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2J5QQZ32L;
 				INFOPLIST_FILE = WatchSpriteKit/Info.plist;
@@ -561,6 +601,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchSpriteKit/WatchSpriteKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2J5QQZ32L;
 				INFOPLIST_FILE = WatchSpriteKit/Info.plist;
